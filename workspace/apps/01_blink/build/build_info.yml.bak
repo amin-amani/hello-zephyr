@@ -1,0 +1,5 @@
+west:
+  command: /opt/venv/bin/west build -p always -b esp32s3_devkitc/esp32s3/procpu --
+    -DTC_OVERLAY_FILE =boards/esp32s3_devkitc.overlay
+  topdir: /opt/toolchains
+  version: 1.3.0

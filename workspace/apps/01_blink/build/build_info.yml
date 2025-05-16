@@ -1,0 +1,47 @@
+cmake:
+  application:
+    configuration-dir: /workspace/apps/01_blink
+    source-dir: /workspace/apps/01_blink
+  board:
+    name: esp32s3_devkitc
+    qualifiers: esp32s3/procpu
+    revision: 
+  devicetree:
+    bindings-dirs:
+     - /opt/toolchains/zephyr/dts/bindings
+    files:
+     - /opt/toolchains/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts
+     - boards/esp32s3_devkitc.overlay
+    include-dirs:
+     - /opt/toolchains/zephyr/include
+     - /opt/toolchains/zephyr/include/zephyr
+     - /opt/toolchains/zephyr/dts/common
+     - /opt/toolchains/zephyr/dts/x86
+     - /opt/toolchains/zephyr/dts/xtensa
+     - /opt/toolchains/zephyr/dts/sparc
+     - /opt/toolchains/zephyr/dts/riscv
+     - /opt/toolchains/zephyr/dts/posix
+     - /opt/toolchains/zephyr/dts/nios2
+     - /opt/toolchains/zephyr/dts/arm64
+     - /opt/toolchains/zephyr/dts/arm
+     - /opt/toolchains/zephyr/dts/arc
+     - /opt/toolchains/zephyr/dts
+    user-files:
+     - boards/esp32s3_devkitc.overlay
+  kconfig:
+    files:
+     - /opt/toolchains/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu_defconfig
+     - /workspace/apps/01_blink/prj.conf
+    user-files:
+     - /workspace/apps/01_blink/prj.conf
+  toolchain:
+    name: zephyr
+    path: /opt/toolchains/zephyr-sdk-0.16.8
+  zephyr:
+    version: 3.7.99
+    zephyr-base: /opt/toolchains/zephyr
+version: 0.1.0
+west:
+  command: /opt/venv/bin/west build -p always -b esp32s3_devkitc/esp32s3/procpu -- -DTC_OVERLAY_FILE =boards/esp32s3_devkitc.overlay
+  topdir: /opt/toolchains
+  version: 1.3.0

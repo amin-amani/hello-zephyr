@@ -3,7 +3,7 @@ This project forked from https://github.com/ShawnHymel/introduction-to-zephyr
 
 ### build and run Docker
 ```
-docker build -t env-zephyr-espressif -f Dockerfile.espressif .
+docker build -t env-zephyr-espressif -f Dockerfile.espressif . --build-arg TARGETARCH=amd64
 docker run --rm -v ./workspace:/workspace -it env-zephyr-espressif bash
 ```
 ### make application
